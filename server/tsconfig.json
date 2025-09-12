@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    /* File Layout */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* Module + Target */
+    "target": "esnext",                // modern JS features
+    "module": "nodenext",                // use modern ESM imports
+    "moduleResolution": "nodenext",    // resolves node-style imports
+
+    /* Node types */
+    "types": ["node"],                 // enable Node.js globals like require, process
+    "lib": ["ESNext"],
+
+    /* Interop with CommonJS */
+    "esModuleInterop": true,           // allows default import of CJS modules (like express)
+    "allowSyntheticDefaultImports": true,
+
+    /* Output Helpers */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    /* Project style */
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
