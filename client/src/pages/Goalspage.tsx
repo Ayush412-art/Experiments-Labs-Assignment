@@ -7,12 +7,12 @@ import GoalCard from "../components/GoalCard";
 function Goalspage() {
   const [goal, setGoal] = useState("");
   const [complexity, setComplexity] = useState("");
-  const [generatedGoals, setGeneratedGoals] = useState<any[]>([]); // ✅ store multiple goals
+  const [generatedGoals, setGeneratedGoals] = useState<any[]>([]); 
 
   const handlerGoals = async () => {
     const data = await fetchGoals({ goal, complexity });
-    console.log(data);
     setGeneratedGoals((prevGoals) => [...prevGoals, data]);
+    console.log(data);
   };
 
   return (
@@ -55,9 +55,11 @@ function Goalspage() {
           {generatedGoals.map((goalData, index) => (
             <GoalCard
               key={index}
+              
               title={goalData.data.title}
               complexity={goalData.data.complexity}
               progress={goalData.data.progress}
+              roadmap = {goalData.data.roadmap}
             />
           ))}
         </div>

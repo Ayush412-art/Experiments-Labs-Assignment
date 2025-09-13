@@ -7,7 +7,7 @@ dotenv.config()
 // if (!process.env.GEMINI_API_KEY) {
 //   console.log("Gemini API key is missing.");
 // }
-const GEMINI_API_KEY = "AIzaSyCK6iEIOWx_HIKDgcJl8YUFER16I4ZXf6k"
+const GEMINI_API_KEY = "AIzaSyCWriA3yAc7cNCU1eAZkv4qJr0Uk2qvrZc"
 const genAi = new GoogleGenerativeAI(GEMINI_API_KEY!);
 
 // Generate learning roadmap using Gemini AI
@@ -241,3 +241,4 @@ export const deleteGoal = async (req: Request, res: Response): Promise<void> => 
     });
   }
 };
+

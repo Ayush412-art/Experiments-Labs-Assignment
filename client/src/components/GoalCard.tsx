@@ -4,14 +4,21 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import { Button } from "@mui/material";
+import { ArrowRight } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
+// interface goalCardProp {
+//   title: string;
+//   progress: number;
+//   complexity: string;
+  
+// }
 
-interface goalCardProp {
-  title: string;
-  progress: number;
-  complexity: string;
-}
 
-function GoalCard(goalProp: goalCardProp) {
+
+function GoalCard(goalProp: any) {
+  
+  const nevigate = useNavigate()
   return (
     <Box sx={{ minWidth: 300 }}>
       <Card
@@ -76,7 +83,9 @@ function GoalCard(goalProp: goalCardProp) {
             <Typography>Progress: {goalProp.progress}</Typography>
           </Box>
         </CardContent>
-        <CardActions></CardActions>
+        <CardActions>
+          <Button onClick={() => nevigate("/roadmap" , {state : {goals : goalProp}}) } variant="text" sx={{display : "flex" , alignItems : "center" , gap : "2px"}} >Roadmap<span><ArrowRight /></span></Button>
+        </CardActions>
       </Card>
     </Box>
   );
