@@ -1,12 +1,34 @@
-import express ,{Application} from 'express'
-const app : Application = express();
+import express, { Application } from 'express';
+import connection from './db/db';
+import dotenv from "dotenv";
+import goalsRoutes from './routes/goals.routes';
+import userRoutes from "./routes/users.route";
+import cors from 'cors';
 
-// default middlewares
+dotenv.config();
+
+const app: Application = express();
+
+
+// CORS configuration
+app.use(cors());
+
+// Default middlewares
 app.use(express.json());
-app.use(express.urlencoded({extended : true}))
+app.use(express.urlencoded({ extended: true }));
+
+// Database connection
+connection();
+
+// Routes
+app.use('/api/goals', goalsRoutes);
+app.use('/api/user', userRoutes);
 
 
 
-app.listen(8090 , () =>{
-    console.log("server is running at port 8090")
-})
+const PORT = process.env.PORT || 8090;
+
+app.listen(PORT, () => {
+  console.log(`Server is running at port ${PORT}`);
+ 
+});

@@ -17,9 +17,10 @@ function Homepage() {
 
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <OutlinedCard title="Create study goals" link="/login" />
+            <OutlinedCard title="Create study goals" link="/createGoals" />
             <OutlinedCard title="Analysis your progress" link="/progress" />
           </div>
+          <p className="text-sm text-gray-300 text-center my-5">Use above buttons to create goals and check analysis</p>
         </div>
       </section>
     </>
