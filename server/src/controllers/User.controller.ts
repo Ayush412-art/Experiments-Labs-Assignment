@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const user_login = async (req: Request, res: Response): Promise<any> => {
   const { email, password } = req.body;
   try {
-    //checking for the email in the mongodb
+    
     const isUser = await user.findOne({ email });
 
     if (!isUser) {
@@ -18,7 +18,7 @@ const user_login = async (req: Request, res: Response): Promise<any> => {
     if (!match) {
       return res.status(404).json({ msg: "incorrect password " });
     }
-    const secret_key: any = process.env.SECRET_KEY;
+    const secret_key: any = "metaveka@#2";
 
     const token: string = jwt.sign(
       { email: isUser.email, role: "email" },

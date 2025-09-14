@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 import { auth } from "../firebase/Firebase";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function UserSignup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,6 +11,7 @@ export default function UserSignup() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate()
 
   const validate = () => {
     if (!email) return "Email is required.";
@@ -40,7 +42,17 @@ export default function UserSignup() {
 
     try {
       setLoading(true);
-      await createUserWithEmailAndPassword(auth, email, password);
+      const res = await axios.post(`${import.meta.env.VITE_LOCALHOST_URL}/api/user/signup`  , {
+        email ,
+        password
+      })
+       if(res.status == 201){
+          navigate("/login");
+       }
+       else if(res.status == 400){
+        alert("user already created");
+       }
+     
       setEmail("");
       setPassword("");
       setConfirmPassword("");
