@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const connection = async()=>{
     try{
-    const url : any  = "mongodb+srv://iamayush449:1rD34hwk8MJZ2X0u@ayush.mv5dzyj.mongodb.net/";
+    const url : any  = process.env.MONGO_URL!;
     if(!url){
         console.log("mongo url not found");
         

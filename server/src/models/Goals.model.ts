@@ -9,8 +9,8 @@ export interface IRoadmapItem {
 
 export interface IGoal extends Document {
   title: string;         
-  complexity: string;    // e.g. 'auto' | 'low' | 'medium' | 'high'
-  progress: number;      // 0 - 100
+  complexity: string;    
+  progress: number;      
   roadmap: IRoadmapItem[];
   user?: mongoose.Types.ObjectId;
   createdAt?: Date;

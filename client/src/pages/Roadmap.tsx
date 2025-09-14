@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-// import AItutor from "../components/AiAvtar";
+import AItutor from "../components/AiAvtar";
 interface RoadmapWeek {
   week: number;
   title: string;
@@ -253,7 +253,7 @@ function Roadmap() {
           })}
         </div>
 
-             {/* <AItutor currentGoal={goals[0]} /> */}
+             <AItutor currentGoal={goals[0]} />
 
       </div>
     </div>

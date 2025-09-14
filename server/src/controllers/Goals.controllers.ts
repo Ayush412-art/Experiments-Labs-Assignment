@@ -3,11 +3,11 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import Goal, { IGoal } from "../models/Goals.model";
 import dotenv from "dotenv";
 dotenv.config()
-// Check if API key is available
-// if (!process.env.GEMINI_API_KEY) {
-//   console.log("Gemini API key is missing.");
-// }
-const GEMINI_API_KEY = "AIzaSyCWriA3yAc7cNCU1eAZkv4qJr0Uk2qvrZc"
+
+if (!process.env.GEMINI_API_KEY) {
+  console.log("Gemini API key is missing.");
+}
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 const genAi = new GoogleGenerativeAI(GEMINI_API_KEY!);
 
 // Generate learning roadmap using Gemini AI
