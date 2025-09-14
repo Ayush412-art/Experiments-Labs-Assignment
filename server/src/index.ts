@@ -12,7 +12,11 @@ dotenv.config();
 const app: Application = express();
 const httpServer = createServer(app);
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://experiments-labs-assignment.vercel.app/"], 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 // Default middlewares
 app.use(express.json());
